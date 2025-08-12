@@ -1,0 +1,14 @@
+<div id="<%= dom_id post %>" class="p-4 border rounded-lg shadow-sm mb-4">
+  <h2 class="text-xl font-semibold"><%= post.title %></h2>
+  <p class="mt-2 text-gray-800"><%= post.content %></p>
+
+  <div class="mt-4 text-sm text-gray-500">
+    <%# This is the core logic! %>
+    <% if user_signed_in? %>
+      <p>by <strong class="text-gray-900"><%= post.user.name %></strong></p>
+    <% else %>
+      <p>by <strong class="text-gray-900">Anonymous</strong></p>
+    <% end %>
+    <p>Posted on <%= post.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+</div>
